@@ -1,0 +1,523 @@
+/*
+ * IMPORTANT NOTICE:
+ * The following contributions were assisted by AI:
+ * - Color palette and basic structure
+ * - Gradient backgrounds
+ * - Transform and transition hover effects
+ * - Grid layout for room list items
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+canvas#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensures the canvas is behind the content */
+}
+
+canvas#bg2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: +1; /* Ensures the canvas is behind the content */
+}
+
+
+/* Body Style */
+body {
+    background: linear-gradient(135deg, #e2e2e2, #c9d6ff);
+    color: black;
+    font-size: 16px;
+    line-height: 1.6;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#app-view {
+    width: 100%
+}
+
+/* For screens 1024px and wider */
+@media (min-width: 1024px) {
+    #app-view {
+        width: 90%;
+    }
+}
+
+/* For screens between 768px and 1024px */
+@media (min-width: 768px) and (max-width: 1023px) {
+    #app-view {
+        width: 95%;
+    }
+}
+
+/* For screens less than 768px */
+@media (max-width: 767px) {
+    #app-view {
+        width: 100%;
+    }
+}
+
+/* App Menu Styling */
+#app-menu {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    padding: 5px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+#app-menu:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+    transition: box-shadow 0.3s ease, transform 0.3s ease, background 0.5s ease;
+}
+
+/* Menu Items Styling */
+.menu-item {
+    list-style: none;
+    display: flex;
+}
+
+.menu-item a {
+    color: rgba(255, 255, 255, 1);;
+    text-decoration: none;
+    font-size: 0.5rem;
+    font-weight: bold;
+    font-family: 'Roboto Slab', serif;
+    text-transform: uppercase;
+    padding: 10px 20px;
+}
+
+.menu-item a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    transform: translateY(-2px);
+    transition: transform 0.3s ease, background 0.3s ease;
+} 
+
+/* Main Content Area - Extended Full Width */
+#page-view {
+    background: #f0f4ff;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    /* overflow: scroll; */
+    max-height: 100%; 
+    /* Optional: Set a maximum height */
+    margin-bottom: 25px;
+}
+
+#page-view:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Room List Styling */
+.room-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Creates 4 equal columns */
+}
+
+/* Styling for Room List Items */
+.room-list li {
+    aspect-ratio: 3 / 1;  
+    width: 82%;
+    cursor: pointer;
+    font-family: 'Roboto Slab', serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    list-style: none; /* Removes the default bullet points */
+    padding: 10px 15px; /* Adds padding inside the <li> for spacing */
+    margin-bottom: 10px; /* Adds space between list items */
+    border-radius: 10px; /* Curves the border around the <li> */
+    background-color: #f9f9f9; /* Light background color for the <li> */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+}
+
+.room-list li a {
+    color: black;
+    text-decoration: none;
+}
+
+
+room-list li:hover {
+    border: 1px solid #6a11cb;
+    color: #d4f0ff;
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.75);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; /* Smooth transition for effects */
+}
+
+/* Hero Section Styling */
+.hero {
+    background: transparent;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-family: 'Roboto Slab', serif;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-family: 'Press Start 2P', cursive;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+
+.hero h1:hover {
+    transform: scale(1.1);
+    color: #ff4b2b;
+}
+
+.hero h2:hover {
+    transform: scale(1.1);
+    color: #ff4b2b;
+}
+
+.hero p {
+    font-size: 1rem;
+    margin-bottom: 40px;
+    font-family: 'Press Start 2P', cursive;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.hero p:hover {
+    transform: scale(1.05);
+    color: #ff4b2b;
+}
+
+.hero .cta-button {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero .cta-button:hover {
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero ul {
+    justify-items: center;
+    align-items: center;
+    list-style:circle;
+    padding: 0;
+    margin: 0;
+}
+
+.hero ul li {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-family: 'Press Start 2P', cursive;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.hero ul li:hover {
+    transform: scale(1.05);
+    color: #ff4b2b;
+}
+
+/* Page Control Styling */
+.page-control {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    /* flex-flow: ; */
+}
+
+.translate-checkbox{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+#translate-checkbox-label{
+    font-size: 12px;
+    justify-content: center;
+    margin-left: 5px;
+    margin-top: 11px;
+    
+}
+
+.checkbox-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.play-speech-checkbox{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.play-speech-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+#play-speech-checkbox-label{
+    font-size: 12px;
+    justify-content: center;
+    margin-left: 5px;
+    margin-top: 11px;
+    
+}
+
+/* Language Select List Styling */
+#language-select {
+    width: 20px; 
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#language-select:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 10px rgba(106, 17, 203, 0.2);
+}
+
+/* Form Field Styling */
+.form-field {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+/* Label, Input, Text Area Styling */
+label {
+    width: 120px;
+    font-weight: bold;
+    color: black;
+}
+
+input,
+textarea {
+    width: 90%;
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    margin-left: 10px;
+    resize: none;
+    margin-top: 10px;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 10px rgba(106, 17, 203, 0.2);
+}
+
+/* Button Styling */
+button {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 5px;
+    font-size: 1rem;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Styling for the user name */
+.message-user {
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: black;
+}
+
+/* Specific styling for the message text inside general messages */
+.message-text {
+    padding: 8px 12px;
+    color: black;
+}
+
+/* Container for all messages */
+.message-list {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+    height: 40vh; /* Set a fixed height */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* General message styling for messages from others (e.g., professor) */
+.message {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    background: white;
+    align-self: flex-start; /* Aligns message to the left */
+}
+
+/* Message styling for the user's own messages (e.g., student) */
+.my-message {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    background: #fff;
+    align-self: flex-end; /* Aligns message to the right */
+}
+
+.white-icon {
+    filter: brightness(0) invert(1); /* Turns the icon white */
+}
+
+/* Quick Reply Buttons Styling */
+.quick-replies {
+	display: flex;
+    justify-content: center;
+	margin-bottom: 10px;
+}
+
+.quick-reply-button {
+	background-color: #f1f1f1;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
+.emojies {
+	display: flex;
+    justify-content: center;
+	margin-bottom: 10px;
+}
+
+.emoji-button {
+	background-color: #f1f1f1;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	padding: 10px 20px;
+    font-size: 1.2em;
+	cursor: pointer;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+form:hover {
+    transform: translateY(-100px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+form div {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+input[type="text"], input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 10px rgba(106, 17, 203, 0.2);
+}
+
+input[type="submit"] {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+

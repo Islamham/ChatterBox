@@ -1,0 +1,64 @@
+conn = new Mongo();
+db = conn.getDB("cpen322-messenger");
+db.dropDatabase();
+imgHost = '/';
+
+result = db.chatrooms.insertMany([
+	{
+		_id: 'room-1',
+		name: 'Everyone in CPEN322',
+	    image: imgHost+'assets/everyone-icon.png'
+	},
+	{
+		_id: 'room-2',
+		name: 'Foodies only',
+	    image: imgHost+'assets/bibimbap.jpg'
+	},
+	{
+		_id: 'room-3',
+		name: 'Gamers unite',
+	    image: imgHost+'assets/minecraft.jpg'
+	},
+	{
+		_id: 'room-4',
+		name: 'Canucks Fans',
+	    image: imgHost+'assets/canucks.png'
+	}
+]);
+
+print(result);
+
+result = db.conversations.insertMany([
+	{
+		room_id: 'room-1',
+		timestamp: 1596233125227,
+		messages: [{
+				username: 'Alice',
+				text: 'Hello!'
+			}, {
+				username: 'Bob',
+				text: 'Hi!'
+			}, {
+				username: 'Charlie',
+				text: "What's up?"
+		}]
+	}
+]);
+
+print(result);
+
+result = db.languages.insertMany([
+	{ name: 'English', code: 'en' },
+	{ name: 'Spanish', code: 'es' },
+	{ name: 'French', code: 'fr' },
+	{ name: 'German', code: 'de' },
+	{ name: 'Chinese', code: 'zh' },
+	{ name: 'Japanese', code: 'ja' },
+	{ name: 'Korean', code: 'ko' },
+	{ name: 'Russian', code: 'ru' },
+	{ name: 'Portuguese', code: 'pt' },
+	{ name: 'Italian', code: 'it' },
+	// Add more languages as needed
+]);
+
+print(result);

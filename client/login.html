@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CPEN320 Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> -->
+<body>
+    <canvas id="bg"></canvas>
+    <div class="hero">
+        <h2>Welcome to ChatterBox</h2>
+        <p>Unlock amazing AI features designed to enhance your communication experience!</p>
+        <ul>
+            <li>AI-Powered Multilingual Text Translation</li>
+            <li>Natural Language Voice Synthesis (TTS)</li>
+            <li>AI-Powered Quick Response Generation</li>
+            <li>Context-Aware Emoji Recommendations</li>
+        </ul>
+    </div>
+    <form method="POST" action="/login">
+        <div>
+            <input type="text" id="username" placeholder="username" name="username" >
+        </div>
+        <div>
+            <input type="password" id="password" placeholder= "password" name="password">
+        </div>
+        <div>
+            <input type="submit" value="Enter">
+        </div>
+    </form>
+    <script type="module" src="./script.js"></script>
+    <!-- <script>
+        // Three.js setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.querySelector('#bg') });
+
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.position.setZ(30);
+
+        const geometry = new THREE.TorusGeometry(20, 6, 16, 100);
+        const material = new THREE.MeshStandardMaterial({ color: 0x6a11cb });
+        const torus = new THREE.Mesh(geometry, material);
+
+        scene.add(torus);
+
+        const pointLight = new THREE.PointLight(0x6a11cb);
+        pointLight.position.set(5, 5, 5);
+        scene.add(pointLight);
+
+        const ambientLight = new THREE.AmbientLight(0x6a11cb);
+        scene.add(ambientLight);
+
+        function animate() {
+            requestAnimationFrame(animate);
+            torus.rotation.x += 0.01;
+            torus.rotation.y += 0.005;
+            torus.rotation.z += 0.01;
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script> -->
+</body>
+</html>

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Portrait From The Future
+* source:	https://sketchfab.com/3d-models/portrait-from-the-future-c6bfb46214b44ccb96b36da771caf515
+* author:	Quickhatch_art (https://sketchfab.com/Quickhatch_art)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Portrait From The Future" (https://sketchfab.com/3d-models/portrait-from-the-future-c6bfb46214b44ccb96b36da771caf515) by Quickhatch_art (https://sketchfab.com/Quickhatch_art) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

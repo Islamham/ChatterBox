@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CPEN320 Project</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <canvas id="bg"></canvas>
+    <div id="app-view">
+      <ul id="app-menu">
+        <li class="menu-item">
+          <a href="#/"><img src="assets/everyone-icon.png" class="white-icon" width="55" height="50"></a>
+        </li>
+        <li class="menu-item">
+          <a href="#/profile"><img src="assets/profile-icon.png" class="white-icon" width="40" height="40"></a>
+        </li>
+      </ul>
+      <div id="page-view">
+        <div class="content">
+          <ul class="room-list">
+            <li><a href="#/chat">Everyone in CPEN400A</a></li>
+            <li><a href="#/chat">Foodies only</a></li>
+            <li><a href="#/chat">Gamers unite</a></li>
+            <li><a href="#/chat">Canucks</a></li>
+          </ul>
+          <div class="page-control">
+            <input type="text">
+            <button>Create Room</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
